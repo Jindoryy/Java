@@ -1,4 +1,4 @@
-# Arrays 클래스
+# Arrays Class
 
 1. 배열의 배교와 출력 - equals(), toString()
 
