@@ -1,4 +1,4 @@
-# 5-7 5-8 5-9~ check! 
+# 5-7 5-8 5-10~ check! 
 
 
 
@@ -137,3 +137,47 @@ public class Hello {
 }
 
 # 5-9
+import java.util.Arrays;
+
+public class Hello {
+	public static void main(String[] args) {
+		char[][] star = {
+		{'*','*',' ',' ',' '},
+		{'*','*',' ',' ',' '},
+		{'*','*','*','*','*'},
+		{'*','*','*','*','*'}
+		};
+		
+		char[][] result = new char[star[0].length][star.length];
+		
+		System.out.println(star[0]);
+		//System.out.println(Arrays.deepToString(result));
+		
+		for(int i=0; i < star.length;i++) {
+			for(int j=0; j < star[i].length;j++) {
+				System.out.print(star[i][j]);
+			}
+			System.out.println();
+		}
+		
+		System.out.println();
+		
+		
+		for(int i=0; i < star.length;i++) { // 0~4
+			for(int j=0; j < star[i].length;j++) { // 0~5
+				int idx = star.length-1-i;
+				result[j][idx] = star[i][j]; // 그림을 그려 좌표간의 관계식을 유추하면 된다.
+			}
+		}
+		
+		for(int i=0; i < result.length;i++) {
+			for(int j=0; j < result[i].length;j++) {
+				System.out.print(result[i][j]);
+			}
+		
+		System.out.println();
+		}
+	}
+}
+
+# 5-10
