@@ -184,3 +184,192 @@ public class Hello {
 
 # 6-19
 다시한번 볼 필요
+
+# 6-20
+	
+import java.util.Arrays;
+
+
+public class Hello {
+	
+	static int[] shuffle(int[] arr) {
+		
+		if (arr == null || arr.length == 0) { // 유효성 검사 빼먹지 말기
+			return arr;
+		}
+		
+		for (int i = 0; i < arr.length; i++) {
+			int idx = (int)(Math.random() * arr.length);
+			
+			int tmp = arr[i];
+			arr[i] = arr[idx];
+			arr[idx] = tmp; 
+		}
+		
+		return arr;
+	}
+	
+	public static void main(String[] args) {
+
+		int[] original = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+		
+		System.out.println(Arrays.toString(original));
+		
+		int[] result = shuffle(original);
+		System.out.println(Arrays.toString(result));
+	}
+}
+
+# 6-21
+
+class MyTv {
+	boolean isPowerOn;
+	int channel;
+	int volumn;
+	
+	final int MAX_VOLUMN = 100;
+	final int MIN_VOLUMN = 0;
+	final int MAX_CHANNEL = 100;
+	final int MIN_CHANNEL = 1;
+	
+	void turnOnOff() {
+		isPowerOn = !isPowerOn;
+	}
+	
+	void volumnUp() {
+		if (volumn < MAX_VOLUMN) {
+			volumn++;
+		}
+	}
+	
+	void volumnDown() {
+		if (volumn > MIN_VOLUMN) {
+			volumn--;
+		}
+	}
+	
+	void channelUp() {
+		if (channel == MAX_CHANNEL) {
+			channel = MIN_CHANNEL;
+		}
+		else {
+			channel++;
+		}
+	}
+	
+	void channelDown() {
+		if (channel == MIN_CHANNEL) {
+			channel = MAX_CHANNEL;
+		}
+		else {
+			channel--;
+		}
+	}
+	
+}
+
+
+public class Hello {
+	
+	public static void main(String[] args) {
+
+		MyTv t = new MyTv();
+		
+		t.channel = 100;
+		t.volumn = 0;
+		System.out.println("CH:"+t.channel+", VOL:"+ t.volumn);
+		
+		t.channelDown();
+		t.volumnDown();
+		System.out.println("CH:"+t.channel+", VOL:"+ t.volumn);
+		
+		t.volumn = 100;
+		t.channelUp();
+		t.volumnUp();
+		System.out.println("CH:"+t.channel+", VOL:"+ t.volumn);
+	}
+}
+
+# 6-22
+
+public class Hello {
+	
+	static boolean isNumber(String str) {
+		if (str == null || str.length() == 0)
+			return false;
+		
+		for (int i = 0; i < str.length(); i++) {
+			char ch = str.charAt(i);
+			
+			if ('1' > ch || ch > '9') {
+				return false;
+			}
+		}
+		
+		return true;
+	}
+	
+	public static void main(String[] args) {
+
+		String str = "123";
+		System.out.println(str+"은 숫자입니까? "+ isNumber(str));
+		
+		str = "1234o";
+		System.out.println(str+"은 숫자입니까? "+ isNumber(str));
+	}
+}
+
+# 6-23
+	
+import java.util.Arrays;
+
+public class Hello {
+	
+	static int max(int[] arr) {
+		
+		if (arr == null || arr.length == 0)
+			return -999999;
+		
+		int tmp = 0;
+		
+		for (int i = 0; i < arr.length; i++) {
+			if (tmp < arr[i]) {
+				tmp = arr[i];
+			}
+		}
+		
+		return tmp;
+	}
+	
+	public static void main(String[] args) {
+
+		int[] arr = {1, 2, 9, 4, 7};
+		
+		System.out.println(Arrays.toString(arr));
+		System.out.println("최댓값 : " + max(arr));
+		System.out.println("최댓값 : " + max(null));
+		System.out.println("최댓값 : " + max(new int[] {}));
+	}
+}
+
+# 6-24
+
+import java.util.Arrays;
+
+public class Hello {
+	
+	static int abs(int value) {
+		return (value >= 0 ? value : -value);
+	}
+	
+	public static void main(String[] args) {
+
+		int value = 5;
+		
+		System.out.println(value+" 의 절대값 :"+abs(value));
+		
+		value = -10;
+		
+		System.out.println(value+" 의 절대값 :"+abs(value));
+	}
+}
